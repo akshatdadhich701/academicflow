@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Profile</title>
+<style>
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(30, 102, 192, 0.5); /* Blue background color with transparency */
+  padding-top: 50px; /* Take margin from the top */
+  font-family: Arial, sans-serif; /* Set font family */
+}
+
+.modal-content {
+  background-color: #fff; /* White background color */
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 70%; /* Adjust the width of the modal content */
+  max-width: 600px; /* Set maximum width */
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(30, 102, 192, 0.7); /* Blue box shadow */
+  font-size: 20px; /* Set font size */
+  height: 80%; /* Set modal height */
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 20px; /* Adjust close button position */
+  right: 20px; /* Adjust close button position */
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Profile Image Container */
+.profile-img-container {
+  text-align: center;
+}
+
+/* Profile Image */
+.profile-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px; /* Make the image square */
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Profile Data */
+.profile-data {
+  margin-top: 20px;
+}
+
+/* Profile Data Rows */
+.profile-data-row {
+  margin-bottom: 10px;
+}
+
+/* Profile Data Columns */
+.profile-data-column {
+  margin-bottom: 5px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Button to Open the Modal -->
+<button onclick="openModal()">Open Profile Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="profile-img-container">
+      <img class="profile-img" src="student-image.jpg" alt="Student Image">
+    </div>
+    <div class="profile-data">
+      <div class="profile-data-row">
+        <div class="profile-data-column"><strong>Student ID:</strong> 12345</div>
+      </div>
+      <div class="profile-data-row">
+        <div class="profile-data-column"><strong>Name:</strong> John Doe</div>
+      </div>
+      <div class="profile-data-row">
+        <div class="profile-data-column"><strong>Email:</strong> john.doe@example.com</div>
+      </div>
+      <div class="profile-data-row">
+        <div class="profile-data-column"><strong>Section:</strong> A</div>
+      </div>
+      <div class="profile-data-row">
+        <div class="profile-data-column"><strong>Semester:</strong> Spring 2024</div>
+      </div>
+      <div class="profile-data-row">
+        <div class="profile-data-column"><strong>Course:</strong> Computer Science</div>
+      </div>
+      <div class="profile-data-row">
+        <div class="profile-data-column"><strong>Phone:</strong> +1234567890</div>
+      </div>
+      <div class="profile-data-row">
+        <div class="profile-data-column"><strong>Address:</strong> 123 Main St, City, Country</div>
+      </div>
+      <div class="profile-data-row">
+        <div class="profile-data-column"><strong>Gender:</strong> Male</div>
+      </div>
+      <div class="profile-data-row">
+        <div class="profile-data-column"><strong>College Name:</strong> XYZ College</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.querySelector("button");
+
+// When the user clicks the button, open the modal 
+function openModal() {
+  modal.style.display = "block";
+  // Remember the scroll position
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${window.scrollY}px`;
+}
+
+// When the user
+// When the user clicks on <span> (x), close the modal
+    function closeModal() {
+  modal.style.display = "none";
+  // Restore scroll position
+  const scrollY = document.body.style.top;
+  document.body.style.position = '';
+  document.body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1);
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    closeModal();
+  }
+}
+</script>
+
+</body>
+</html>
